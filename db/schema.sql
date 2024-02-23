@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS fs-blog_db;
+
+CREATE DATABASE fs-blog_db;
