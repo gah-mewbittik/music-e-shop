@@ -1,3 +1,3 @@
-DROP DATABASE IF EXISTS fs-blog_db;
+DROP DATABASE IF EXISTS music-e-shop_db;
 
-CREATE DATABASE fs-blog_db;
+CREATE DATABASE music-e-shop_db;
