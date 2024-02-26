@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music E-Shop</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <header class="siteName" id="siteName">
+        <img class="logo" id="logo" src="assets/Images/Music-e-shop-logo-1.png" alt="logo">
+        <nav>
+            {{#if logged_in}}
+            <a href="/account">Account</a> |
+            <button class="'no-button" id="logout">logout</button>
+            {{else}}
+            <a href="'/login">login</a>
+            {{/if}}
+            <ul class="nav-links">
+                <li><a href="#shop">Shop</a></li>
+                <li><a href="#account">Account</a></li>
+                <li><a href="#orders">Orders</a></li>
+                <li><a href="#login">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container container">
+        {{{body}}}
+    </main>
+    <footer>
+
+    </footer>
+</div>
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
+</body>
+</html>
