@@ -1,3 +1,3 @@
-DROP DATABASE IF EXISTS music-e-shop_db;
+DROP DATABASE IF EXISTS music_eshop_db;
 
-CREATE DATABASE music-e-shop_db;
+CREATE DATABASE music_eshop_db;

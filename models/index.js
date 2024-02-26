@@ -1,7 +1,7 @@
 const User = require('./User');
 const Order = require('./Order');
 const Product = require('./Product');
-const OrderProduct = require('./OrderPoduct');
+const OrderProduct = require('./OrderProduct');
 
 
 // TODO: add associations HERE

@@ -6,6 +6,13 @@ class OrderProduct extends Model {};
 
 OrderProduct.init({
 
-});
+},
+{
+    sequelize,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'orderProduct',
+  }
+);
 
 module.exports = OrderProduct;
