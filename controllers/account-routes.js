@@ -1,15 +1,38 @@
 const router = require('express').Router();
-//const { User, Post, Comment } = require('../models');
-// TODO: - NEED to add restriction access to see if logged in.
+const { User } = require('../models');
 
-router.get('/', (req, res) => {
-    // If a session exists, redirect the request to the homepage
-    if (req.session.logged_in) {
-      res.redirect('/');
-      return;
+const withAuth = require('../utils/auth');
+
+router.get('/', withAuth, async (req, res) => {
+    try{
+      const userData = await User.findAll({
+        include: [{
+          model: User,
+          attributes: ['id', 'username'],
+        },
+      ],
+   
+      });
+
+      const accounts = userData.map((account) => account.get)({plain: true});
+      res.render('account', {
+        loggedIn: req.session.loggedIn
+      });
+
+    }catch(err){
+      res.status(500).json(err);
     }
-  
-    res.render('account');
   });
 
   module.exports = router;
+
+  // Used the below, just to get functionality working for main handlebars
+  // router.get('/', (req, res) => {
+  //   // If a session exists, redirect the request to the homepage
+  //   if (req.session.logged_in) {
+  //     res.redirect('/');
+  //     return;
+  //   }
+  
+  //   res.render('account');
+  // });
