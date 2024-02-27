@@ -27,7 +27,7 @@ Product.init({
     type: DataTypes.BOOLEAN,
     allowNull: false,
   },
-  //TODO: Image to add.
+  //TODO: Look into if you can add an image or image link
   },
 {
     sequelize,
