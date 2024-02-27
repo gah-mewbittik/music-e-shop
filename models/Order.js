@@ -5,7 +5,10 @@ const sequelize = require('../config/connection');
 class Order extends Model {};
 
 Order.init({
-
+  id:{
+    type: DataTypes.INTEGER,
+    
+  }
 },
 {
     sequelize,

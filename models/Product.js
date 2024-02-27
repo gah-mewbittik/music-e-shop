@@ -25,6 +25,7 @@ price: {
 }, 
 featured: {
   type: DataTypes.BOOLEAN,
+  allowNull: false,
 },
 //TODO: Image to add.
 },
