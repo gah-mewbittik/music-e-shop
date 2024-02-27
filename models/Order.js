@@ -19,7 +19,20 @@ Order.init({
       key: 'id',
     },
   },
-
+  order_date: {
+    type: DataTypes.DATE(6),
+    allowNull: false,
+  },
+  total: {
+    type: DataTypes.VIRTUAL,
+  get(){
+    //calculated total from products 
+    if(this.products){
+    return this.products.reduce((total, product) => total + product.price, 0);
+  }
+  else {return 0}; //Defaults to zero if there are no products
+},
+},
 },
 {
     sequelize,
