@@ -3,7 +3,10 @@ const Order = require('./Order');
 const Product = require('./Product');
 const OrderProduct = require('./OrderProduct');
 
+Order.belongsTo(User);
+User.hasMany(Order);
 
-// TODO: add associations HERE
+Product.belongsToMany(Order, { through: OrderProduct });
+Order.belongsToMany(Product, { through: OrderProduct });
 
 module.exports = { User, Order, Product, OrderProduct };
