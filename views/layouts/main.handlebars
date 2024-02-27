@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music E-Shop</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
     <header class="siteName" id="siteName">
-        <img class="logo" id="logo" src="assets/Images/Music-e-shop-logo-1.png" alt="logo">
+        <img class="logo" id="logo" src="/images/Music-e-shop-logo-1.png" alt="logo">
         <nav>
             {{#if logged_in}}
             <a href="/account">Account</a> |
@@ -22,7 +22,7 @@
                 <li><a href="/">Shop</a></li>
                 <li><a href="/account">Account</a></li>
                 <li><a href="/order">Orders</a></li>
-                <li><a href="/login">Login</a></li>
+                <li><a href="/login">Login</a></li> <!-- TODO: KEEP This and delete the one above on line19 -->
             </ul>
         </nav>
     </header>
