@@ -60,7 +60,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Login
+// Login TODO: Look at the option of moving the below code to login-routes
 router.post('/login', async (req, res) => {
   try {
     const dbUserData = await User.findOne({

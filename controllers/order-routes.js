@@ -4,7 +4,7 @@ const { User, Order, Product, OrderProduct } = require('../models');
 const { update } = require('../models/User');
 const withAuth = require('../utils/auth');
 
-//TODO: CRUD (Create, Read, Update, Delete)
+//TODO: CRUD (Create, Read, Update, Delete) may only need CREATE 
 
 // Gets(reads) ALL Orders
 router.get('/', withAuth, async (req, res) => {
