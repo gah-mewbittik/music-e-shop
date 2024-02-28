@@ -1,11 +1,14 @@
 const sequelize = require('../config/connection');
-const seedGallery = require('./galleryData');
-const seedPaintings = require('./paintingData');
+
+const seedUsers = require('./userData');
+const seedProducts = require('./productData');
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });
 
-// TODO: ADD function data here from seed files' data
+
+  await seedUsers();
+  await seedProducts();
 
   process.exit(0);
 };
