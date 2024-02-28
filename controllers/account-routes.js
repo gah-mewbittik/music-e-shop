@@ -3,7 +3,7 @@ const router = require('express').Router();
 // TODO: - NEED to add restriction access to see if logged in.
 
 router.get('/', (req, res) => {
-    // If a session exists, redirect the request to the homepage
+    // If a session exists, redirect the request to the homepage 
     if (req.session.logged_in) {
       res.redirect('/');
       return;
