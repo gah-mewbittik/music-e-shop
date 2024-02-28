@@ -1,8 +1,8 @@
 const router = require('express').Router();
 
 const { User, Order, Product, OrderProduct } = require('../models');
-const { update } = require('../models/User');
 const withAuth = require('../utils/auth');
+const idValidation = require('../utils/idValidation');
 
 //TODO: CRUD (Create, Read, Update, Delete) may only need CREATE 
 
@@ -35,7 +35,7 @@ router.get('/', withAuth, async (req, res) => {
   });
 
 //Get(read) a single Order
-router.get('/:id', async (req, res) => {
+router.get('/:id', idValidation, async (req, res) => {
   try{
     const order = await Order.findByPk(req.params.id, {
       include: [{
@@ -80,7 +80,7 @@ router.post('/', async (req, res) => {
 });
 
 // Put(Update) an Order TODO: do we really need update Order?
-router.put('/:id', async (req, res) => {
+router.put('/:id', idValidation, async (req, res) => {
   try{
      const updateOrder = await Order.update( 
       {
@@ -100,7 +100,7 @@ router.put('/:id', async (req, res) => {
 });
 
 // Delete(destroy) an Order
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', idValidation, async (req, res) => {
   try{
     const deleteOrder = await Order.destroy({
       where: {

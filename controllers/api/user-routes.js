@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+const idValidation = require('../../utils/idValidation');
+
 
 //Get All users
 router.get('/', async (req, res) => {
@@ -20,9 +22,11 @@ router.get('/', async (req, res) => {
 });
 
 //Get a single User
-router.get('/:id', async (req, res) => {
+router.get('/:id', idValidation, async (req, res) => {
+  
+
   try{
-    const user = await User.findByPk(req.params.id, {
+    const user = await User.findByPk(productId, {
       include: [{
         attributes: ['username', 'email'],
       }],
