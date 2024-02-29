@@ -1,8 +1,10 @@
 const router = require('express').Router();
 
 const { User, Order, Product, OrderProduct } = require('../../models');
-const withAuth = require('../../utils/auth');
+//const withAuth = require('../../utils/auth');
 const idValidation = require('../../utils/idValidation');
+
+
 //Get(read) a single Order
 router.get('/:id', idValidation, async (req, res) => {
     try{
@@ -86,4 +88,5 @@ router.get('/:id', idValidation, async (req, res) => {
       res.status(500).json(err);
     }
   });
+
   module.exports = router;

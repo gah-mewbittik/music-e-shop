@@ -7,6 +7,7 @@ router.get('/', (req, res) => {
   res.render('homepage');
 });
 
+// Get login
 router.get('/login', (req, res) => {
   // If a session exists, redirect the request to the homepage
   if (req.session.logged_in) {
@@ -17,7 +18,7 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-
+//Get account
 router.get('/account', withAuth, async (req, res) => {
   try{
     const userData = await User.findAll({
@@ -39,7 +40,7 @@ router.get('/account', withAuth, async (req, res) => {
   }
 });
 
-// Render Order Page
+//Get order
 router.get('/order', withAuth, async (req, res) => {
   try{
     const orderData = await User.findAll({

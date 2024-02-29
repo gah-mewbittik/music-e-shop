@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
-const idValidation = require('../utils/idValidation');
-const { User, Order, Product, OrderProduct } = require('../models');
+const idValidation = require('../../utils/idValidation');
+const { User, Order, Product, OrderProduct } = require('../../models');
 
 //Get all products
 router.get('/', async (req, res) => {
@@ -36,12 +36,12 @@ router.get('/:id', idValidation, async (req, res) => {
     }
 });
 
-//Post - Create a product TODO: YOU are you.
+//Post - Create a product
 router.post('/', async (req, res) => {
     try{
         const newProduct = await Product.create({
             name: req.body.name,
-            description: req.body.name,
+            description: req.body.description,
             price: req.body.prices,
             featured: req.body.featured,
           });
@@ -49,6 +49,27 @@ router.post('/', async (req, res) => {
         res.status(200).json(newProduct);
       })
 
+    }catch(err){
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
+//Delete - destroy a product 
+router.delete('/:id', idValidation, async (req, res) => {
+    try{
+        const deleteProduct = await Product.destroy({
+            where: {
+                id: req.params.id,
+              },
+        });
+
+        if(deleteProduct){
+            return res.status(200).json({message: 'Product DELETED Successfully'});
+      }else{
+        return res.status(204).json();
+      }
+        
     }catch(err){
         console.log(err);
         res.status(500).json(err);
