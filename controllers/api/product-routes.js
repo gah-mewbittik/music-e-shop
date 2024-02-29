@@ -9,8 +9,9 @@ router.get('/', async (req, res) => {
         const productData = await Product.findAll({});
 
         const products = productData.map((product) => product.get({plain: true}));
-      res.render('products', {products});
 
+        res.json(products);
+        
     }catch(err){
         res.status(500).json(err);
     }
@@ -19,10 +20,8 @@ router.get('/', async (req, res) => {
 //Get a single product
 router.get('/:id', idValidation, async (req, res) => {
     try{
-        const product = await Product.findByPk(req.params.id, {
-            include: [{
-                attributes: ['name', 'description', 'price'],
-            }],
+        const product = await Product.findOne({
+          where:{id: req.params.id },
         });
         
         if(!product){
@@ -54,6 +53,28 @@ router.post('/', async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+//PUT - Update a product
+router.put('/:id', idValidation, async (req, res) => {
+    try{
+        const updateProduct = await Product.update(
+            {
+                name: req.body.name,
+                description: req.body.description,
+                price: req.body.price,
+                featured: req.body.featured,
+            },
+            {
+            where: {id: req.params.id},
+            }
+        );
+        return res.status(200).json(updateProduct);
+
+    }catch(err){
+        console.log(err);
+        res.status(500).json(err);
+    }
+})
 
 //Delete - destroy a product 
 router.delete('/:id', idValidation, async (req, res) => {

@@ -58,27 +58,6 @@ router.post('/', async (req, res) => {
   }
 });
 
-//Delete a user
-router.delete('/:id', idValidation, async (req, res) => {
-  try{
-    const deleteUser = await User.destroy({
-      where: {
-          id: req.params.id,
-        },
-      });
-
-      if(deleteUser){
-        return res.status(200).json({message: 'User DELETED Successfully'});
-  }else{
-    return res.status(204).json();
-  }
-
-  }catch(err){
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
-
 //Update a user
 router.put('/:id', idValidation, async (req, res) => {
   try{
@@ -101,7 +80,30 @@ router.put('/:id', idValidation, async (req, res) => {
   }
 });
 
-//TODO: Review Login
+//Delete a user
+router.delete('/:id', idValidation, async (req, res) => {
+  try{
+    const deleteUser = await User.destroy({
+      where: {
+          id: req.params.id,
+        },
+      });
+
+      if(deleteUser){
+        return res.status(200).json({message: 'User DELETED Successfully'});
+  }else{
+    return res.status(204).json();
+  }
+
+  }catch(err){
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+
+
+// --   LOGIN Section  -- //
 
 // Login 
 router.post('/login', async (req, res) => {
