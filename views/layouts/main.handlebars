@@ -10,19 +10,24 @@
 
 <body>
     <header class="siteName" id="siteName">
-        <img class="logo" id="logo" src="/images/Music-e-shop-logo-1.png" alt="logo">
-        <nav>
-            <ul class="nav-links">
-                <li><a href="/">Shop</a></li>
-                <li><a href="/account">Account</a></li>
-                <li><a href="/order">Orders</a></li>
-                {{#if logged_in}}
-                <button class="'no-button" id="logout">logout</button>
-                {{else}}
-                <li><a href="/login">Login</a></li> 
-                {{/if}}
-            </ul>
-        </nav>
+        <img class="logo" id="logo" src="assets/Images/Music-e-shop-logo-1.png" alt="logo">
+        
+        <div class="container">
+            <div class="row">
+                <nav class="col-12">
+                    <ul class="nav">
+                        <li class="nav-item"><a class="nav-link" href="/">Shop</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/account">Account</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/order">Orders</a></li>
+                        {{#if logged_in}}
+                        <button class="no-button" id="loggedout">Log out</button>
+                        {{else}}
+                        <li class="nav-item"><a class="nav-link" href="/">Login</a></li>
+                        {{/if}}
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </header>
     <main class="container container">
         {{{body}}}
