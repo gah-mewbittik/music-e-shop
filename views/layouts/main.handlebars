@@ -1,43 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music E-Shop</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 
 <body>
     <header class="siteName" id="siteName">
-        <img class="logo" id="logo" src="assets/Images/Music-e-shop-logo-1.png" alt="logo">
-        
         <div class="container">
             <div class="row">
                 <nav class="col-12">
                     <ul class="nav">
                         <li class="nav-item"><a class="nav-link" href="/">Shop</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/account">Account</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/order">Orders</a></li>
-                        {{#if logged_in}}
-                        <button class="no-button" id="loggedout">Log out</button>
-                        {{else}}
+                        <li class="nav-item"><a class="nav-link" href="/">Account</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/">Orders</a></li>
                         <li class="nav-item"><a class="nav-link" href="/">Login</a></li>
-                        {{/if}}
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
-    <main class="container container">
-        {{{body}}}
-    </main>
-    <footer>
 
-    </footer>
-</div>
-    {{#if logged_in}}
-    <script src="/js/logout.js"></script>
-    {{/if}}
-</body>
+    <body>
+        <div class="container">
+            <main class="row">
+                {{{ body }}}                             
+            </main>
+
+
+        </div>
+
+        
+        <div class="row">
+            <div class="col">
+                <footer class="text-center py-3">
+                    <h2>This is the footer</h2>
+                </footer>
+            </div>
+        </div>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/logout.js"></script>
+    </body>
+
 </html>
