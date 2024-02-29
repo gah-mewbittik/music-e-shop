@@ -36,7 +36,7 @@ router.get('/:id', idValidation, async (req, res) => {
     }
 });
 
-//Post - Create a product
+//Post - Create a product TODO: YOU are you.
 router.post('/', async (req, res) => {
     try{
         const newProduct = await Product.create({
