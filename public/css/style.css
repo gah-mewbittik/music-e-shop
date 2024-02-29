@@ -42,12 +42,59 @@ header h1 {
 
 a {
     color:black;
-    text-decoration:underline;
-    cursor:grab;
+    cursor:pointer;
     font-size: 30px;
 }
 
 .nav-links li:hover {
     background-color:lightgray;
+    text-decoration:underline;
     transition: all 1s;
+}
+.login-card, .sign-up-card {
+    width:50%;
+    
+}
+.login-container {
+    display:flex;
+    flex-direction: row;
+    padding-top:20vh ;
+
+}
+.card-header{
+    justify-content: space-between 10px;
+    margin: 20px;
+}
+
+.social-links {
+    list-style-type:none;
+    display: flex;
+    
+    
+}
+
+.social-links li {
+    margin-right: 20px;
+    
+}
+
+.social-links li:last-child {
+    margin-right: 0;
+}
+
+
+.social-links li:hover {
+    background-color:lightgray;
+    transition: all 1s;
+    text-decoration:underline;
+}
+.social-links-container {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.forgot-text {
+    font-size: 20px;
+    color:blue;
+
 }
