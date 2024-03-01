@@ -7,9 +7,7 @@ const idValidation = require('../../utils/idValidation');
 //Get All users
 router.get('/', async (req, res) => {
   try{
-    const userData = await User.findAll({
-      where: { id: req.session. user_id },
-    });
+    const userData = await User.findAll({});
 
     const users = userData.map((user) => user.get({plain: true}));
       res.json(users);
@@ -23,13 +21,9 @@ router.get('/', async (req, res) => {
 
 //Get a single User
 router.get('/:id', idValidation, async (req, res) => {
-  
-
   try{
-    const user = await User.findByPk(productId, {
-      include: [{
-        attributes: ['username', 'email'],
-      }],
+    const user = await User.findOne({
+      where: {id: req.params.id },
     });
 
     if(!user){
@@ -64,7 +58,54 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Login TODO: Look at the option of moving the below code to login-routes
+//Update a user
+router.put('/:id', idValidation, async (req, res) => {
+  try{
+    const updateUser = await User.update( 
+      {
+        username: req.body.username,
+        email: req.body.email,
+        password: req.body.email,
+     },
+     {
+      where: {
+        id: req.params.id,
+      },
+     });
+     return res.status(200).json(updateUser);
+
+  }catch(err){
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+//Delete a user
+router.delete('/:id', idValidation, async (req, res) => {
+  try{
+    const deleteUser = await User.destroy({
+      where: {
+          id: req.params.id,
+        },
+      });
+
+      if(deleteUser){
+        return res.status(200).json({message: 'User DELETED Successfully'});
+  }else{
+    return res.status(204).json();
+  }
+
+  }catch(err){
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+
+
+// --   LOGIN Section  -- //
+
+// Login 
 router.post('/login', async (req, res) => {
   try {
     const dbUserData = await User.findOne({
