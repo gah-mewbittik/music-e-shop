@@ -18,6 +18,7 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+
 //Get account
 router.get('/account', withAuth, async (req, res) => {
   try{
@@ -39,6 +40,7 @@ router.get('/account', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 
 //Get order
 router.get('/order', withAuth, async (req, res) => {
@@ -68,5 +70,10 @@ router.get('/order', withAuth, async (req, res) => {
   }
 });
 
+router.get('/products', async (req, res) => {
+  const productsDb = await Product.findAll({});
+  const allProducts = productsDb.map(x => x.get({plain: true}));
+  res.render('products', {allProducts});
+});
 
 module.exports = router;
