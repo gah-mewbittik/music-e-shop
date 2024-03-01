@@ -17,8 +17,8 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-
-router.get('/account', withAuth, async (req, res) => {
+// Remove withAuth, to edit protected pages//
+router.get('/account',  async (req, res) => {
   try{
     const userData = await User.findAll({
       include: [{
@@ -40,7 +40,8 @@ router.get('/account', withAuth, async (req, res) => {
 });
 
 // Render Order Page
-router.get('/order', withAuth, async (req, res) => {
+//add withAuth, for page protection//
+router.get('/order', async (req, res) => {
   try{
     const orderData = await User.findAll({
       where: { id: req.session. user_id },
@@ -67,5 +68,10 @@ router.get('/order', withAuth, async (req, res) => {
   }
 });
 
+router.get('/products', async (req, res) => {
+  const productsDb = await Product.findAll({});
+  const allProducts = productsDb.map(x => x.get({plain: true}));
+  res.render('products', {allProducts});
+});
 
 module.exports = router;

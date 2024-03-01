@@ -7,20 +7,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music E-Shop</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 
 <body>
     <header class="siteName" id="siteName">
+        <img class="logo" src="images/Music-e-shop-logo-1.png" width="100" alt="logo">
         <div class="container">
             <div class="row">
                 <nav class="col-12">
                     <ul class="nav">
-                        <li class="nav-item"><a class="nav-link" href="/">Shop</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/">Account</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/">Orders</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/products">Products</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/orders">Cart
+                        <span class="badge badge-light" id="cart-badge" style="background-color: blue;"></span>
+                        </a></li>
+                        {{#if logged_in}}
+                        <button class="no-button" id="logout">logout</button>
+                        {{else}}
+                        <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+                        {{/if}}
                     </ul>
                 </nav>
             </div>
@@ -30,23 +37,41 @@
     <body>
         <div class="container">
             <main class="row">
-                {{{ body }}}                             
+                {{{ body }}}
             </main>
-
-
         </div>
 
-        
         <div class="row">
             <div class="col">
                 <footer class="text-center py-3">
-                    <h2>This is the footer</h2>
+                    <br>
+                    <br>
+                    <h2>Follow us on Social media</h2>
+                    <div class="social-links-container">
+                        <ul class="social-links">
+                            <li><a href="https://facebook.com/AliahGuerraMusic" target="_blank">📘Facebook</a></li>
+                            <li><a href="https://instagram.com/AliahGuerra" target="_blank">📷Instagram</a></li>
+                        </ul>
+                    </div>
                 </footer>
             </div>
         </div>
         <script
             src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.bundle.min.js"></script>
         <script src="/js/logout.js"></script>
+        <script>
+            // IFEE
+            (function getCart() {
+                const badgeEl = document.getElementById('cart-badge');
+                fetch('/api/cart')
+                .then(res => res.json())
+                .then(data => {
+                    badgeEl.innerText = data?.length;
+                    console.log('cart:', data);
+                });
+            })();
+            
+        </script>
     </body>
 
 </html>
