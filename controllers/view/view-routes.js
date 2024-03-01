@@ -68,5 +68,10 @@ router.get('/order', async (req, res) => {
   }
 });
 
+router.get('/products', async (req, res) => {
+  const productsDb = await Product.findAll({});
+  const allProducts = productsDb.map(x => x.get({plain: true}));
+  res.render('products', {allProducts});
+});
 
 module.exports = router;
