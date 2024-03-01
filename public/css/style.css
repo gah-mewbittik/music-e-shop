@@ -1,5 +1,6 @@
 * {
     font-family: FangSong;
+
 }
 
 header {
@@ -20,8 +21,8 @@ header h1 {
 .logo {
     display:inline-flex;
     flex:1 1 auto;
-    max-width:15vw;
-    max-height:20vh;
+    max-width:12vw;
+    max-height:15vh;
     min-width: 50px;
     min-height: 50px;
 }
@@ -97,4 +98,42 @@ a {
     font-size: 20px;
     color:blue;
 
+}
+.main-prod-display , .aside-prod-display, button {
+    list-style-type: none;
+
+
+}
+h2.main-prod-title, h2.aside-prod-title {
+    display:flex;
+    justify-content: center;
+    align-items: center
+}
+.main-prod-img {
+    width:40vw;
+    height:50vh;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+
+}
+.aside-prod-img {
+    width:12vw;
+    height:20vh;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+}
+#view-more-btn {
+    background-color:deepskyblue; 
+    display:flex;
+    flex:wrap;
+}
+.col-md-9 {
+    background-color: lightblue;
+
+}
+.col-md-3 {
+    background-color: lightcyan;
+    
 }
