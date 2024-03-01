@@ -2,39 +2,31 @@ const {Product} = require('../models');
 
 const productData = [
     {
-        name: 'cd',
-        description: 'Old school compact disc',
-        price: 8.99,
+        name: 'Magazine',
+        image_url:'https://isteam.wsimg.com/ip/6d9a06b8-8689-4207-8681-8e0845dc50e4/ols/72_original/:/rs=w:600,h:600',
+        description: 'Limited edition autogrphed magazine',
+        price: 14.99,
         featured: true,
     },
     {
-        name: 'poster',
-        description: 'Awesome live performance shot!',
-        price: 12.99,
-        featured: true,
-    },
-    {
-        name: 'wrist band',
-        description: 'Showing the ultimate support',
-        price: 5.99,
-        featured: false,
-    },
-    {
-        name: 'hat',
-        description: 'The Style',
-        price: 24.99,
-        featured: false,
-    },
-    {
-        name: 'key chain',
-        description: 'The bling bling of tomorrow',
+        name: 'T-Shirt',
+        image_url:'https://isteam.wsimg.com/ip/6d9a06b8-8689-4207-8681-8e0845dc50e4/ols/63_original/:/rs=w:600,h:600',
+        description: 'One size fits all  100% cotton T-shirt',
         price: 19.99,
-        featured: false,
+        featured: true,
     },
     {
-        name: 'vinyl',
-        description: 'The Old Old School!!!',
-        price: 49.99,
+        name: 'CD',
+        description: 'Sounds of a Seed physical album',
+        image_url:'https://isteam.wsimg.com/ip/6d9a06b8-8689-4207-8681-8e0845dc50e4/ols/77_original/:/rs=w:600,h:600',
+        price: 9.99,
+        featured: true,
+    },
+    {
+        name: 'mug',
+        image_url:'https://isteam.wsimg.com/ip/6d9a06b8-8689-4207-8681-8e0845dc50e4/ols/67_original/:/rs=w:600,h:600',
+        description: 'Stainless steel hot beverage cup',
+        price: 4.99,
         featured: true,
     },
 ];
