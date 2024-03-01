@@ -7,6 +7,7 @@ router.get('/', (req, res) => {
   res.render('homepage');
 });
 
+// Get login
 router.get('/login', (req, res) => {
   // If a session exists, redirect the request to the homepage
   if (req.session.logged_in) {
@@ -17,8 +18,9 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-// Remove withAuth, to edit protected pages//
-router.get('/account',  async (req, res) => {
+
+//Get account
+router.get('/account', withAuth, async (req, res) => {
   try{
     const userData = await User.findAll({
       include: [{
@@ -39,9 +41,9 @@ router.get('/account',  async (req, res) => {
   }
 });
 
-// Render Order Page
-//add withAuth, for page protection//
-router.get('/order', async (req, res) => {
+
+//Get order
+router.get('/order', withAuth, async (req, res) => {
   try{
     const orderData = await User.findAll({
       where: { id: req.session. user_id },
