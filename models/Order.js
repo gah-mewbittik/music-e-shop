@@ -26,11 +26,14 @@ Order.init({
   total: {
     type: DataTypes.VIRTUAL,
   get(){
+    console.log('Products: ', this.products);
     //calculated total from products 
     if(this.products){
-    return this.products.reduce((total, product) => total + product.price, 0);
-  }
-  else {return 0}; //Defaults to zero if there are no products
+      const total = this.products.reduce((total, product) => total + product.price, 0);
+      console.log('Total', total);
+      return total
+    
+  }else{console.log('No Products found, returning 0'); return 0} //Defaults to zero if there are no products
 },
 },
 },

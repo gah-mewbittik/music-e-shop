@@ -25,8 +25,8 @@
                         <span class="badge badge-light" id="cart-badge" style="background-color: blue;"></span>
                         </a></li>
 
-                        {{#if logged_in}}
-                        <button class="no-button" id="logout">logout</button>
+                        {{#if loggedIn}}
+                        <button type="submit" class="btn btn-primary" id="logout">logout</button>
                         {{else}}
                         <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
                         {{/if}}
