@@ -4,14 +4,14 @@ const productData = [
     {
         name: 'Magazine',
         image_url:'https://isteam.wsimg.com/ip/6d9a06b8-8689-4207-8681-8e0845dc50e4/ols/72_original/:/rs=w:600,h:600',
-        description: 'Limited edition autogrphed magazine',
+        description: 'Limited Ed. Autographed magazine',
         price: 14.99,
         featured: true,
     },
     {
         name: 'T-Shirt',
         image_url:'https://isteam.wsimg.com/ip/6d9a06b8-8689-4207-8681-8e0845dc50e4/ols/63_original/:/rs=w:600,h:600',
-        description: 'One size fits all  100% cotton T-shirt',
+        description: 'One size fits all 100% cotton T-shirt',
         price: 19.99,
         featured: true,
     },

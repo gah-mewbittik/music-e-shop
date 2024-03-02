@@ -21,11 +21,10 @@ header h1 {
 .logo {
     display:inline-flex;
     flex:1 1 auto;
-    max-width:12vw;
-    max-height:15vh;
-    min-width: 50px;
-    min-height: 50px;
+    max-width:7vw;
+    max-height:10vh;
 }
+
 .nav-links {
     list-style-type:none;
     display: flex;
@@ -52,16 +51,17 @@ a {
     text-decoration:underline;
     transition: all 1s;
 }
+
 .login-card, .sign-up-card {
-    width:50%;
-    
+    width:50%;    
 }
+
 .login-container {
     display:flex;
     flex-direction: row;
-    padding-top:20vh ;
-
+    padding-top:5vh ;
 }
+
 .card-header{
     justify-content: space-between 10px;
     margin: 20px;
@@ -70,13 +70,10 @@ a {
 .social-links {
     list-style-type:none;
     display: flex;
-    
-    
 }
 
 .social-links li {
-    margin-right: 20px;
-    
+    margin-right: 20px;    
 }
 
 .social-links li:last-child {
@@ -89,34 +86,34 @@ a {
     transition: all 1s;
     text-decoration:underline;
 }
+
 .social-links-container {
     display:flex;
     justify-content: center;
     align-items: center;
 }
+
 .forgot-text {
     font-size: 20px;
     color:blue;
-
 }
-.main-prod-display , .aside-prod-display, button {
+
+ul.main-prod-display , ul.aside-prod-display, button {
     list-style-type: none;
-
-
-}
-h2.main-prod-title, h2.aside-prod-title {
     display:flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center
+    align-items: center;
 }
+
 .main-prod-img {
     width:40vw;
-    height:50vh;
+    height:70vh;
     justify-content: center;
     align-items: center;
     list-style-type: none;
-
 }
+
 .aside-prod-img {
     width:12vw;
     height:20vh;
@@ -124,16 +121,48 @@ h2.main-prod-title, h2.aside-prod-title {
     align-items: center;
     list-style-type: none;
 }
-#view-more-btn {
-    background-color:deepskyblue; 
-    display:flex;
-    flex:wrap;
+
+#view-more-btn  { 
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    width: 12vw;    
 }
+
 .col-md-9 {
     background-color: lightblue;
-
+    width:75%;
+    height:auto;
 }
 .col-md-3 {
-    background-color: lightcyan;
-    
+    background-color: lightcyan;   
+    width:25%;
+    height:auto;
+}
+
+img.card-img-top{
+    width:261.77px;
+    height:327.21px;
+    align-items: center;
+
+}
+#checkout-btn  {
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    margin-top: 50px;  
+    display:flex;
+    flex-direction: column;
+}
+div.card-header {
+    background-color:blue;
+    color:white;
+
+}
+img.login-gif {
+    width:30vw;
+    height:30vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
