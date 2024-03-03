@@ -53,16 +53,17 @@ router.get('/:id', idValidation, async (req, res) => {
     }
   });
   
-  // Posts(Creates) a new Order TODO: total 
+  // Posts(Creates) a new Order TODO: need to fix total 
   router.post('/', async (req, res) => {
     const t = await sequelize.transaction();
 
     try{
       const newOrder = await Order.create({
-        user_id: req.body.user_id,
+        user_id: req.body.user_id,//Store user_id 
         order_date: new Date(),
       }, {transaction: t});
-  
+
+  //TODO: req.session.cart
       const orderProducts = req.body.products.map(p => ({
         order_id: newOrder.id,
         product_id: p.id,

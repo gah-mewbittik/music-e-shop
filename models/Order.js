@@ -23,19 +23,23 @@ Order.init({
     type: DataTypes.DATE(6),
     allowNull: false,
   },
-  total: {
-    type: DataTypes.VIRTUAL,
-  get(){
-    console.log('Products: ', this.products);
-    //calculated total from products 
-    if(this.products){
-      const total = this.products.reduce((total, product) => total + product.price, 0);
-      console.log('Total', total);
-      return total
+  total:{
+    type: DataTypes.FLOAT,
+    allowNull:false
+  }
+//   total: {
+//     type: DataTypes.VIRTUAL,
+//   get(){
+//     console.log('Products: ', this.products);
+//     //calculated total from products 
+//     if(this.products){
+//       const total = this.products.reduce((total, product) => total + product.price, 0);
+//       console.log('Total', total);
+//       return total
     
-  }else{console.log('No Products found, returning 0'); return 0} //Defaults to zero if there are no products
-},
-},
+//   }else{console.log('No Products found, returning 0'); return 0} //Defaults to zero if there are no products
+// },
+// },
 },
 {
     sequelize,

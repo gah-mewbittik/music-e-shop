@@ -45,7 +45,7 @@ router.get('/account', withAuth, async (req, res) => {
 //Get order
 router.get('/orders', withAuth, async (req, res) => {
   try{
-    const orderData = await User.findAll({
+   // const orderData = await User.findAll({
       // where: { id: req.session. user_id },
       // // include: [{
       // //   model: Order,
@@ -57,11 +57,11 @@ router.get('/orders', withAuth, async (req, res) => {
       // ],
       // },
    // ],}
-    });
-
-    const orders = orderData.map((order) => order.get({plain: true}));
+  //  });
+    const orderData = req.session.cart
+  //  const orders = orderData.map((order) => order.get({plain: true}));
     res.render('order', {
-      orders, loggedIn: req.session.loggedIn
+      orders: orderData, loggedIn: req.session.loggedIn
     });
 
   }catch(err){

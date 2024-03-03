@@ -2,9 +2,10 @@
 <div class="card" style="width: 18rem;">
   <img class="card-img-top" src="..." alt="Card image cap">
   <div class="card-body">
-    <h5 class="card-title">{{this.name}}</h5>
-    <p class="card-text">{{this.description}}</p>
-    <a href="#" class="btn btn-primary add-to-cart" data-pid="{{this.id}}">Add to Cart</a>
+    <h5 class="card-title">Product Name{{this.name}}</h5>
+    <p class="card-text">description{{this.description}}</p>
+    <h5>Price:{{this.price}}</h5>
+    <a href="#" class="btn btn-primary add-to-cart" data-price={{this.price}} data-pid="{{this.id}}">Add to Cart</a>
   </div>
 </div>
 {{/each}}
@@ -15,14 +16,14 @@
   for (var btn of btnAll) {
     btn.addEventListener('click', async function (event) {
       event.preventDefault();
-      console.log('adding product id to card: ', event.target.dataset.pid);
+      console.log('adding product id to card: ', event.target.dataset.pid,event.target.dataset.price);
       // TODO: 
       const res = await fetch('/api/cart', {
         method:'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({pid: event.target.dataset.pid, quantity: 1})
+        body: JSON.stringify({pid: event.target.dataset.pid, quantity: 1, price: event.target.dataset.price})
       });
       const data = res.json();
       console.log(data);
