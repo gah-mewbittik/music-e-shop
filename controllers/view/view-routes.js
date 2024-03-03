@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
 // Get login
 router.get('/login', (req, res) => {
   // If a session exists, redirect the request to the homepage
-  if (req.session.logged_in) {
+  if (req.session.loggedIn) {
     res.redirect('/');
     return;
   }
@@ -43,26 +43,25 @@ router.get('/account', withAuth, async (req, res) => {
 
 
 //Get order
-router.get('/order', withAuth, async (req, res) => {
+router.get('/orders', withAuth, async (req, res) => {
   try{
-    const orderData = await User.findAll({
-      where: { id: req.session. user_id },
-      include: [{
-        model: Order,
-        attributes: ['id', 'order_date', 'total'],
-        include: [{
-          model: Product, 
-          attributes: ['id', 'name', 'price']
-        },
-      ],
-      },
-    ],
- 
-    });
-
-    const orders = orderData.map((order) => order.get({plain: true}));
+   // const orderData = await User.findAll({
+      // where: { id: req.session. user_id },
+      // // include: [{
+      // //   model: Order,
+      // //   attributes: ['id', 'order_date', 'total'],
+      //   include: [{
+      //     model: Product, 
+      //     attributes: ['id', 'name', 'price']
+      //   },
+      // ],
+      // },
+   // ],}
+  //  });
+    const orderData = req.session.cart
+  //  const orders = orderData.map((order) => order.get({plain: true}));
     res.render('order', {
-      orders, loggedIn: req.session.loggedIn
+      orders: orderData, loggedIn: req.session.loggedIn
     });
 
   }catch(err){

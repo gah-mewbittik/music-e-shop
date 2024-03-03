@@ -25,8 +25,8 @@
                         <span class="badge badge-light" id="cart-badge" style="background-color: blue;"></span>
                         </a></li>
 
-                        {{#if logged_in}}
-                        <button class="no-button" id="logout">logout</button>
+                        {{#if loggedIn}}
+                        <button type="submit" class="btn btn-primary" id="logout">logout</button>
                         {{else}}
                         <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
                         {{/if}}
@@ -35,7 +35,7 @@
             </div>
         </div>
     </header>
-
+    <div id="alert-container"></div>
     <body>
         <div class="container">
             <main class="row">
@@ -59,7 +59,10 @@
         </div>
         <script
             src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.bundle.min.js"></script>
+            {{#if loggedIn}}
         <script src="/js/logout.js"></script>
+
+         {{/if}}
         <script>
             // IFEE
             (function getCart() {

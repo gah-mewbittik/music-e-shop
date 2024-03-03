@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
     return res.json(req.session.cart);
 });
 
-// add a single item to cart
+// add a single item to cart TODO: Change how Total is calculated.
 router.post('/', async (req, res) => {
     console.log('req.body: ', req.body);
     const p = await Product.findByPk(parseInt(req.body.pid));
@@ -18,7 +18,8 @@ router.post('/', async (req, res) => {
         pid: product.id,
         name: product.name,
         price: product.price,
-        quantity: req.body.quantity
+        quantity: req.body.quantity,
+        total: product.price * req.body.quantity
     };
     if(!req.session.cart) {
         req.session.cart = [cartItem];
