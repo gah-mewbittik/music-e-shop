@@ -1,14 +1,21 @@
 {{#each allProducts}}
 <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="..." alt="Card image cap">
+  <img class="card-img-top" src="{{this.image_url}}" alt="{{this.name}}">
   <div class="card-body">
+
     <h5 class="card-title">Product Name{{this.name}}</h5>
     <p class="card-text">description{{this.description}}</p>
     <h5>Price:{{this.price}}</h5>
     <a href="#" class="btn btn-primary add-to-cart" data-price={{this.price}} data-pid="{{this.id}}">Add to Cart</a>
+
   </div>
 </div>
 {{/each}}
+
+<br>
+<br>
+<a href="/cart" class="btn btn-primary" id="checkout-btn">Checkout</a>
+
 
 
 <script>
