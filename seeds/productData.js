@@ -11,7 +11,7 @@ const productData = [
     {
         name: 'T-Shirt',
         image_url:'https://isteam.wsimg.com/ip/6d9a06b8-8689-4207-8681-8e0845dc50e4/ols/63_original/:/rs=w:600,h:600',
-        description: 'One size fits all 100% cotton T-shirt',
+        description: 'One size fits all T-shirt',
         price: 19.99,
         featured: true,
     },
