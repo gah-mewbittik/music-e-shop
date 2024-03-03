@@ -17,6 +17,7 @@ router.post('/', async (req, res) => {
     const cartItem = {
         pid: product.id,
         name: product.name,
+        image: product.image_url,
         price: product.price,
         quantity: req.body.quantity,
         total: product.price * req.body.quantity
