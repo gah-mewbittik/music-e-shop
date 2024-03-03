@@ -2,21 +2,46 @@
     <h1>Order</h1>
     {{#each orders}}
     <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="..." alt="Card image cap">
+    <img class="card-img-top" src="{{this.image_url}}" alt="Card image cap">
     <div class="card-body">
-        <p>Product Id{{this.pid}}</p>
+        <p>Product Id:{{this.pid}}</p>
         <p>{{this.name}}</p>
-        <img class="card-img-top" src="{{this.image_url}}" alt="{{this.name}}">
         <p>Price:${{this.price}}</p>
         <p>Quantity:{{this.quantity}}</p>
         <h5 class="card-title">{{this.user_id}}</h5>
         <p class="card-text">{{this.order_date}}</p>
         <p class="card-text">Total:${{this.total}}</p>
+        <button type="reset" "btn btn-primary" id="remove-item" >Remove</button>
+
         {{!-- <a href="#" class="btn btn-primary add-to-cart" data-pid="{{this.id}}">Add to Cart</a> --}}
     </div>
     </div>
     {{/each}}
 
      {{!-- the button is to create an order through Post in routes? --}}
+     <h2 id="grandTotal">Grand Total: ${{grandTotal}}</h2>
     <button> Confirm Order</button> 
 </div>
+{{!-- // Fetch data from the server to update the grand total  --}}
+<script>
+     // Function to handle removing the item from cart.
+    document.querySelectorAll('#remove-item').forEach(button => {
+        button.addEventListener('click', () => {
+            const card = button.closest('.card');
+            card.remove();
+        });
+    });
+
+
+    fetch('/total')//Make a request to the server to get the latest grand total.
+        .then(response => response.json())
+        .then(data => {
+            const grandTotal = data.grandTotal;
+            //Update the HTML element to display the latest grand total.
+            document.getElementById('grandTotal').innerText = `Grand Total: $${grandTotal}`;
+        })
+        .catch(error => {
+            console.error('Error fetching grand total:', error);
+        });
+</script>
+     
