@@ -154,4 +154,20 @@ router.post('/logout', (req, res) => {
   }
 });
 
+//Sign up
+router.post('/signup', async (req, res) => {
+  try{
+    const newUser = await User.create({
+      username: req.body.username,
+      email: req.body.email,
+      password: req.body.password,
+    });
+    res.status(201).json({message: 'Successfully Signed Up'});
+  }catch(err){
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+
 module.exports = router;

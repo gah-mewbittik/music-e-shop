@@ -27,20 +27,24 @@
         <div class="card-header">
             Sign Up Here!
         </div>
-        <div class="card-body">
-            <div class="form-group">
-                <label>Enter your Email:</label>
-                <input class="form-control" type="text" />
-                <label>Create a Username:</label>
-                <input class="form-control" type="text" />
-                <label>Create a Password:</label>
-                <input class="form-control" type="text" />
+        <form class="form signup-form">
+            <div class="card-body">
+                <div class="form-group">
+                    <label>Enter your Email:</label>
+                    <input class="form-control" type="text" id="signup-email"/>
+                    <label>Create a Username:</label>
+                    <input class="form-control" type="text" id="signup-username" />
+                    <label>Create a Password:</label>
+                    <input class="form-control" type="password" id="signup-password" />
+                </div>
+                <p><a class="forgot-text" href="mailto:aliahguerra.app@gmail.com" target="_blank">Forgot Password? Request reset link.</a></p>
+                <br>
+                {{!-- <a href="#" class="btn btn-primary">Sign Up!</a> --}}
+                <button type="submit" class="btn btn-primary">Sign Up!</button>
             </div>
-             <p><a class="forgot-text" href="mailto:aliahguerra.app@gmail.com" target="_blank">Forgot Password? Request reset link.</a></p>
-            <br>
-            <a href="#" class="btn btn-primary">Sign Up!</a>
-        </div>
+        </form>
     </div>
 </div>
 
 <script src="/js/login.js"></script>
+<script src="/js/signUp.js"></script>
