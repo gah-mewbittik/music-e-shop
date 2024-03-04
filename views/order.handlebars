@@ -11,7 +11,7 @@
         <h5 class="card-title">{{this.user_id}}</h5>
         <p class="card-text">{{this.order_date}}</p>
         <p class="card-text">Total:${{this.total}}</p>
-        <button type="reset" "btn btn-primary" id="remove-item" >Remove</button>
+        <button type="reset" class="btn btn-primary" id="remove-item" >Remove</button>
 
         {{!-- <a href="#" class="btn btn-primary add-to-cart" data-pid="{{this.id}}">Add to Cart</a> --}}
     </div>
@@ -33,7 +33,7 @@
     });
 
 
-    fetch('/total')//Make a request to the server to get the latest grand total.
+    fetch('/api/cart/total')//Make a request to the server to get the latest grand total.
         .then(response => response.json())
         .then(data => {
             const grandTotal = data.grandTotal;
