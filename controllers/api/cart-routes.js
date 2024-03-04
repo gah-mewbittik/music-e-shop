@@ -63,7 +63,7 @@ router.post('/', async (req, res) => {
 // remove item from the cart
 router.delete('/:id', (req, res) => {
     const productId = parseInt(req.params.id);
-    const index = req.session.vart.findIndex(item => item.pid === productId);
+    const index = req.session.cart.findIndex(item => item.pid === productId);//
     if (index !== -1) {
         req.session.cart.splice(index, 1); //Remove the item from the cart array.
         return res.status(200).json({ message: 'Product removed from cart'});

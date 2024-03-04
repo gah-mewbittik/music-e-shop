@@ -32,6 +32,8 @@
         },
         body: JSON.stringify({pid: event.target.dataset.pid, quantity: 1, price: event.target.dataset.price})
       });
+      console.log('This res') //error message *
+      console.log(res)
       const data = res.json();
       console.log(data);
     });
