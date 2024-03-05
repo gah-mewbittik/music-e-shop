@@ -53,17 +53,17 @@ router.get('/:id', idValidation, async (req, res) => {
     }
   });
   
-  // Posts(Creates) a new Order TODO: need to fix total 
+  // Posts(Creates) a new Order 
   router.post('/', async (req, res) => {
     console.log('REQUEST BODY: ', req.body)    
     try{
       
       const newOrder = await Order.create({
-        user_id: req.body.user_id,//Store user_id 
+        user_id: req.body.userId,//Store user_id - Changed this from user_id to userId
         order_date: new Date(),
       });
         
-      for(const p of req.body.products){ // This didn't work because it seems order_id = null
+      for(const p of req.body.products){ 
         const product = await Product.findByPk(p.id);
         if (!product) return res.status(404).json({err: `Product with id ${p.id} not found`});
         const record = {
