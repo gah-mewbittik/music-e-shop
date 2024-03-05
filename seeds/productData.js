@@ -23,7 +23,7 @@ const productData = [
         featured: true,
     },
     {
-        name: 'mug',
+        name: 'Mug',
         image_url:'images/mug.png',
         description: 'Stainless steel hot beverage cup',
         price: 4.99,
@@ -37,7 +37,7 @@ const productData = [
         featured: true,
     },
     {
-        name: 'sticker',
+        name: 'Sticker',
         image_url:'images/sticker.jpg',
         description: 'Bubble-free stickers',
         price: 0.99,
