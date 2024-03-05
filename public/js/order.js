@@ -38,8 +38,8 @@ btnConfirm.addEventListener('click',  async (event) => {
                     alert.style.display = 'none';
                     console.log('Alert is closed');
                 }
-            })
-
+            });
+        document.documentElement.scrollTop = 0;
     }
     catch (err) {
         // TODO display an error message to the user , alert, fix button and add script for order.handlebars
