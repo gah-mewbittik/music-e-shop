@@ -11,6 +11,7 @@ The Music E-shop application is a tool made with sequelize, inquirer, express.js
 - [credits](#credits)
 - [License](#license)
 - [Contributing](#contributing)
+- [Testing](#testing)
 
 
 ## Installation
