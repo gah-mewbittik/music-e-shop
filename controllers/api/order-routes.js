@@ -55,54 +55,39 @@ router.get('/:id', idValidation, async (req, res) => {
   
   // Posts(Creates) a new Order TODO: need to fix total 
   router.post('/', async (req, res) => {
-    const t = await sequelize.transaction();
-
+    console.log('REQUEST BODY: ', req.body)    
     try{
+      
       const newOrder = await Order.create({
         user_id: req.body.user_id,//Store user_id 
         order_date: new Date(),
-      }, {transaction: t});
-
-  //TODO: req.session.cart
-      const orderProducts = req.body.products.map(p => ({
-        order_id: newOrder.id,
-        product_id: p.id,
-        quantity: p.quantity,
-      }));
-      // for(const p of req.body.products){ // This didn't work because it seems order_id = null
-      //   const record = {
-      //     order_id: newOrder.id,
-      //     product_id: p.id,
-      //     quantity: p.quantity,
-      //   };
-
-      //   await OrderProduct.create(record, {transaction: t});
-      // }
-      
-      await OrderProduct.afterBulkCreate(orderProducts, { transaction: t });
-
-      const orderIncludeProducts = await Order.findByPk(newOrder.id, {
-        include: {
-          model: Product,
-          through: {attributes: ['quantity']},
-        },
-        transaction: t,
       });
+        
+      for(const p of req.body.products){ // This didn't work because it seems order_id = null
+        const product = await Product.findByPk(p.id);
+        if (!product) return res.status(404).json({err: `Product with id ${p.id} not found`});
+        const record = {
+          order_id: newOrder.id,
+          orderId: newOrder.id,
+          product_id: p.id,
+          productId: p.id,
+          quantity: p.quantity,
+        };
 
-      console.log('Order with Products: ', orderIncludeProducts);
+        await OrderProduct.create(record);
+      }
+    
 
-      await t.commit();
-
-      return res.status(201).json({message: 'Order created successfully', order: orderIncludeProducts});
-  
+      return res.status(201).json({message: 'Order created successfully', order: newOrder });
+      
     }catch(err){
       console.log(err);
-      await t.rollback();
+  
       res.status(500).json(err);
     }
   });
   
-  // Put(Update) an Order TODO:  (Backlog)
+  // Put(Update) an Order (Backlog)
   router.put('/:id', idValidation, async (req, res) => {
     try{
        const updateOrder = await Order.update( 

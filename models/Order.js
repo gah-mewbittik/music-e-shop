@@ -23,23 +23,13 @@ Order.init({
     type: DataTypes.DATE(6),
     allowNull: false,
   },
-  total:{
-    type: DataTypes.FLOAT,
-    allowNull:false
-  }
-//   total: {
-//     type: DataTypes.VIRTUAL,
-//   get(){
-//     console.log('Products: ', this.products);
-//     //calculated total from products 
-//     if(this.products){
-//       const total = this.products.reduce((total, product) => total + product.price, 0);
-//       console.log('Total', total);
-//       return total
-    
-//   }else{console.log('No Products found, returning 0'); return 0} //Defaults to zero if there are no products
-// },
-// },
+  
+    // 1 - virtual total (did not cover this in the course)
+    // [X] 2 - don't have total
+    // 3 - column total (actually saves on database) ---> Pro: , less query to quick total look up total
+    // Con: 1)redundacy, 2) if there is an update to the order itesm, this needs to be recalculated, 
+    // otherwise, we are going to have bad data in the database
+
 },
 {
     sequelize,

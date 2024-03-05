@@ -2,6 +2,7 @@
     <h1>Order</h1>
     {{#each orders}}
     <div class="card" style="width: 18rem;">
+        <input type="hidden" value="{{userId}}" id="hidden-user-id"/>
         <img class="card-img-top" src="{{this.image_url}}" alt="Card image cap">
         <div class="card-body">
             <p>Product Id:{{this.pid}}</p>

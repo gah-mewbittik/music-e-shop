@@ -58,10 +58,13 @@ router.get('/orders', withAuth, async (req, res) => {
       // },
    // ],}
   //  });
-    const orderData = req.session.cart
-  //  const orders = orderData.map((order) => order.get({plain: true}));
+  console.log('user is is: ', req.session.user_id);
+   const orderData = req.session.cart
+   //const orders = orderData.map((order) => order.get({plain: true}));
     res.render('order', {
-      orders: orderData, loggedIn: req.session.loggedIn
+      orders: orderData, 
+      loggedIn: req.session.loggedIn,
+      userId: req.session.user_id
     });
 
   }catch(err){
