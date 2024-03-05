@@ -22,7 +22,7 @@ The Music E-shop application is a tool made with sequelize, inquirer, express.js
 5. Update the database connection details (PORT) in the application code.
 
 ## Screenshot
-![ReadMe Gen Screenshot](./Assets/ang-ecommerce-screenshot.gif)
+![ReadMe Gen Screenshot](./public/images/music-e-shop-frontend-screenshot.gif)
 https://github.com/gah-mewbittik/music-e-shop View MP4 Video HERE:
 
 
