@@ -54,7 +54,8 @@
     fetch('/api/cart/total')//Make a request to the server to get the latest grand total.
         .then(response => response.json())
         .then(data => {
-            const grandTotal = data.grandTotal;
+            const grandTotal = data.grandTotal.toFixed(2);
+            
             //Update the HTML element to display the latest grand total.
             document.getElementById('grandTotal').innerText = `Grand Total: $${grandTotal}`;
         })
