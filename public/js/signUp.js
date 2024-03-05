@@ -20,7 +20,7 @@ const signUpFromHandler = async (event) => {
             console.log('Response OK');
             //document.location.replace('/login'); 
             container.innerHTML = 
-            `<div class="alert alert-primary alert-dismissible fade show" role="alert">
+            `<div class="alert alert-success alert-dismissible fade show" role="alert">
             Signed Up! You can now login!
                 <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
                     

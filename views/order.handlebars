@@ -1,7 +1,9 @@
 <div class="order-container">
+     <div id="co-alert-container"></div>
     <h1>Order</h1>
     {{#each orders}}
     <div class="card" style="width: 18rem;">
+        <input type="hidden" value="{{userId}}" id="hidden-user-id"/>
         <img class="card-img-top" src="{{this.image_url}}" alt="Card image cap">
         <div class="card-body">
             <p>Product Id:{{this.pid}}</p>
@@ -20,7 +22,7 @@
 
     {{!-- the button is to create an order through Post in routes? --}}
     <h2 id="grandTotal">Grand Total: ${{grandTotal}}</h2>
-    <button> Confirm Order</button>
+    <button id="btn-confirm" class="btn btn-primary">Confirm Order</button>
 </div>
 {{!-- // Fetch data from the server to update the grand total --}}
 <script>
@@ -60,3 +62,5 @@
             console.error('Error fetching grand total:', error);
         });
 </script>
+
+<script src="/js/order.js"></script>
