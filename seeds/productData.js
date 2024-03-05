@@ -23,10 +23,24 @@ const productData = [
         featured: true,
     },
     {
-        name: 'mug',
+        name: 'Mug',
         image_url:'https://isteam.wsimg.com/ip/6d9a06b8-8689-4207-8681-8e0845dc50e4/ols/67_original/:/rs=w:600,h:600',
         description: 'Stainless steel hot beverage cup',
         price: 4.99,
+        featured: true,
+    },
+    {
+        name: 'Hoodie',
+        image_url:'images/hoodie.jpg',
+        description: 'One size fits all hoodie',
+        price: 24.99,
+        featured: true,
+    },
+    {
+        name: 'Sticker!',
+        image_url:'images/sticker.jpg',
+        description: 'Bubble-free stickers',
+        price: 0.99,
         featured: true,
     },
 ];
