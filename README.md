@@ -1,7 +1,7 @@
 # Music E-Shop
 
 ## Description
-The Music E-shop application is a tool made with sequelize, inquirer, express.js and mySQL. It helps companies keep track of their products easily by letting them see and control product information on the backend. It's made to be simple for e-commerce developers or store managers to  easily access the backend to view product data, and keep all product information updated in a simple way. They can perform CRUD operations (Create, Read, Update, Delete) to view all current products, find products by categories or unique id, add new products, update product information, and delete products in real-time via interactive API calls connected to the server.
+The Music E-shop application is a tool made with sequelize, inquirer, express.js and mySQL. 
 
 ## Table of contents
 - [Installation](#installation)
