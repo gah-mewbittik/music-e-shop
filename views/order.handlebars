@@ -2,33 +2,49 @@
     <h1>Order</h1>
     {{#each orders}}
     <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="{{this.image_url}}" alt="Card image cap">
-    <div class="card-body">
-        <p>Product Id:{{this.pid}}</p>
-        <p>{{this.name}}</p>
-        <p>Price:${{this.price}}</p>
-        <p>Quantity:{{this.quantity}}</p>
-        <h5 class="card-title">{{this.user_id}}</h5>
-        <p class="card-text">{{this.order_date}}</p>
-        <p class="card-text">Total:${{this.total}}</p>
-        <button type="reset" class="btn btn-primary" id="remove-item" >Remove</button>
+        <img class="card-img-top" src="{{this.image_url}}" alt="Card image cap">
+        <div class="card-body">
+            <p>Product Id:{{this.pid}}</p>
+            <p>{{this.name}}</p>
+            <p>Price:${{this.price}}</p>
+            <p>Quantity:{{this.quantity}}</p>
+            <h5 class="card-title">{{this.user_id}}</h5>
+            <p class="card-text">{{this.order_date}}</p>
+            <p class="card-text">Total:${{this.total}}</p>
+            <button class="btn btn-primary remove-item" data-productId="{{this.pid}}">Remove</button>
 
-        {{!-- <a href="#" class="btn btn-primary add-to-cart" data-pid="{{this.id}}">Add to Cart</a> --}}
-    </div>
+            {{!-- <a href="#" class="btn btn-primary add-to-cart" data-pid="{{this.id}}">Add to Cart</a> --}}
+        </div>
     </div>
     {{/each}}
 
-     {{!-- the button is to create an order through Post in routes? --}}
-     <h2 id="grandTotal">Grand Total: ${{grandTotal}}</h2>
-    <button> Confirm Order</button> 
+    {{!-- the button is to create an order through Post in routes? --}}
+    <h2 id="grandTotal">Grand Total: ${{grandTotal}}</h2>
+    <button> Confirm Order</button>
 </div>
-{{!-- // Fetch data from the server to update the grand total  --}}
+{{!-- // Fetch data from the server to update the grand total --}}
 <script>
-     // Function to handle removing the item from cart.
-    document.querySelectorAll('#remove-item').forEach(button => {
-        button.addEventListener('click', () => {
-            const card = button.closest('.card');
-            card.remove();
+    // Function to handle removing the item from cart.
+    document.querySelectorAll('.remove-item').forEach(button => {
+        button.addEventListener('click', (event) => {
+            console.log(event.target.dataset);
+            fetch(`api/cart/${event.target.dataset.productid}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                }                
+            })
+            .then(response => {
+                if (response.ok) {
+                    const card = button.closest('.card');
+                    card.remove();
+                    // refresh the page
+                    location.reload();
+                } else {
+                    console.error('Failed to Delete item from cart');
+                }
+            })
+            .catch(error => console.error('Error:', error));
         });
     });
 
@@ -44,4 +60,3 @@
             console.error('Error fetching grand total:', error);
         });
 </script>
-     
