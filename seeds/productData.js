@@ -23,8 +23,13 @@ const productData = [
         featured: true,
     },
     {
+<<<<<<< HEAD
+        name: 'Mug',
+        image_url:'https://isteam.wsimg.com/ip/6d9a06b8-8689-4207-8681-8e0845dc50e4/ols/67_original/:/rs=w:600,h:600',
+=======
         name: 'mug',
         image_url:'images/mug.png',
+>>>>>>> bc387a7f1f8e570879c61c05d30d725eaf23e589
         description: 'Stainless steel hot beverage cup',
         price: 4.99,
         featured: true,
@@ -37,7 +42,11 @@ const productData = [
         featured: true,
     },
     {
+<<<<<<< HEAD
+        name: 'Sticker!',
+=======
         name: 'sticker',
+>>>>>>> bc387a7f1f8e570879c61c05d30d725eaf23e589
         image_url:'images/sticker.jpg',
         description: 'Bubble-free stickers',
         price: 0.99,
