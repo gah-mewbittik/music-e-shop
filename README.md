@@ -1,36 +1,76 @@
 # Music E-Shop
 
-## Building a Music E-Shop
+## Description
+The Music E-shop application is a tool made with sequelize, inquirer, express.js and mySQL. It helps companies keep track of their products easily by letting them see and control product information on the backend. It's made to be simple for e-commerce developers or store managers to  easily access the backend to view product data, and keep all product information updated in a simple way. They can perform CRUD operations (Create, Read, Update, Delete) to view all current products, find products by categories or unique id, add new products, update product information, and delete products in real-time via interactive API calls connected to the server.
 
-The purpose of this project is to create a full-stack e-commerce shop. This means the development of the front-end (Client-side) and the back-end (Server-side). In the application, the user is presented with a home, dashboard, and login pages. Developing this project demonstrates our full-stack development skills using Mysql2, Nodejs, Express js, Dotenv, Bcrypt, Express-handlebars, Express-sessions, connect-session-sequelize and Sequelize.
-
-This project was developed with Sequelize version ^6.37.0 Using Sequelize assisted in forming and structuring of the database models. Along with forming the models, Sequelize was used for seeding, and the management of data. 
-
-The following is an image of the data output from a method request made using Express js.
-
-![Alt text](./assets/categories%20data.png)
-
-
-The Following image is example of the data retrieved f
-
-![Alt text](./assets/getProducts.png)
-
+## Table of contents
+- [Installation](#installation)
+- [Screenshot](#screenshot)
+- [Features](#features)
+- [Usage](#usage)
+- [credits](#credits)
+- [License](#license)
+- [Contributing](#contributing)
 
 
 ## Installation
+1. Copy and paste the repo in the terminal
+2. Git clone git@github.com:gah-mewbittik/music-e-shop.git
+3. Run "npm install" to install the necessary dependencies, including inquirer version 8.2.4.
+4. Set up your mySQL database by importing the provided schema and seeds files.
+5. Update the database connection details (PORT) in the application code.
 
-N/A
+## Screenshot
+![ReadMe Gen Screenshot](./Assets/ang-ecommerce-screenshot.gif)
+https://github.com/gah-mewbittik/music-e-shop View MP4 Video HERE:
+
+
+## Features
+
+1. GET all products: 
+
+
+2. GET product by id: 
+
+
+3. GET category: 
+
+
+4. POST new product: 
+
+
+5. PUT update product: 
+
+
+6. DELETE Product: 
+
+
 
 ## Usage
 
-To view the application in action, simply click the following link: 
-
-The link will redirect you to a video demonstration of the application in action. The Music E-Shop application functionality allows the user to view and create posts. 
 
 ## Credits
+Aliah Guerra (https://github.com/AliahG97)
+Andrew Biron (https://github.com/gah-mewbittik)
 
-N/A
 
 ## License
+Creative Commons License
+© YumYard by Aliah Guerra & Andrew Biron 2024. Confidential and Proprietary. All Rights Reserved.
 
-Please refer to the LICENSE in the repo.
+
+
+## Contributing
+- 
+
+## Testing
+1. Cd to project file
+2. npm install
+3. npm run seed
+4. npm start
+5. 
+6. 
+7. 
+
+
+
