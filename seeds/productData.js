@@ -29,6 +29,20 @@ const productData = [
         price: 4.99,
         featured: true,
     },
+    {
+        name: 'Hoodie',
+        image_url:'images/hoodie.jpg',
+        description: 'One size fits all hoodie',
+        price: 24.99,
+        featured: true,
+    },
+    {
+        name: 'sticker',
+        image_url:'images/sticker.jpg',
+        description: 'Bubble-free stickers',
+        price: 0.99,
+        featured: true,
+    },
 ];
 
 const seedProducts = () => Product.bulkCreate(productData);

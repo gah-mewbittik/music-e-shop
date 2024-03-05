@@ -4,7 +4,7 @@ const withAuth = require('../../utils/auth');
 
 // Get homepage
 router.get('/', (req, res) => {
-  res.render('homepage');
+  res.render('homepage', { loggedIn: req.session.loggedIn});
 });
 
 // Get login
@@ -72,7 +72,7 @@ router.get('/orders', withAuth, async (req, res) => {
 router.get('/products', async (req, res) => {
   const productsDb = await Product.findAll({});
   const allProducts = productsDb.map(x => x.get({plain: true}));
-  res.render('products', {allProducts});
+  res.render('products', {allProducts,  loggedIn: req.session.loggedIn});
 });
 
 module.exports = router;
