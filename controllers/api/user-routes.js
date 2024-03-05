@@ -65,7 +65,7 @@ router.put('/:id', idValidation, async (req, res) => {
       {
         username: req.body.username,
         email: req.body.email,
-        password: req.body.email,
+        password: req.body.password,
      },
      {
       where: {
@@ -110,7 +110,7 @@ router.post('/login', async (req, res) => {
   try {
     const dbUserData = await User.findOne({
       where: {
-        email: req.body.email,
+        email: req.body.email, 
       },
     });
 
@@ -131,8 +131,8 @@ router.post('/login', async (req, res) => {
     }
 
     req.session.save(() => {
+      req.session.user_id = dbUserData.id;
       req.session.loggedIn = true;
-
       res
         .status(200)
         .json({ user: dbUserData, message: 'You are now logged in!' });
@@ -153,5 +153,21 @@ router.post('/logout', (req, res) => {
     res.status(404).end();
   }
 });
+
+//Sign up
+router.post('/signup', async (req, res) => {
+  try{
+    const newUser = await User.create({
+      username: req.body.username,
+      email: req.body.email,
+      password: req.body.password,
+    });
+    res.status(201).json({message: 'Successfully Signed Up'});
+  }catch(err){
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 
 module.exports = router;
