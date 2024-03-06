@@ -24,6 +24,7 @@ const productData = [
     },
     {
 
+
         name: 'Mug',
         image_url:'images/mug.png',
         description: 'Stainless steel hot beverage cup',
@@ -38,7 +39,6 @@ const productData = [
         featured: true,
     },
     {
-
         name: 'Sticker',
         image_url:'images/sticker.jpg',
         description: 'Bubble-free stickers',
