@@ -39,6 +39,7 @@ const productData = [
         featured: true,
     },
     {
+
         name: 'Sticker',
         image_url:'images/sticker.jpg',
         description: 'Bubble-free stickers',
