@@ -1,6 +1,7 @@
 # Music E-Shop
 
 ## Description
+
 The Music E-shop application is a Full stack e-commerce platform with front end and back-end components. Utilizing MySQL2, Node.js, Express.js, Dotenv, Bcrypt, Express-handlebars, Express-sessions, and sequelize the application offers a seamless online shopping experience. The key features include a responsive layout, user authentication, product browsing, cart management and front-end order processing. Users will interact with the home dashboard, navigation bar and login pages to navigate the site. Product previews, dynamic quantity updates in the cart and detailed pricing calculations will enhance the user experience. Secure user authentication ensures the data privacy, with redirection to the login page for unauthorized users. Once logged in, users can manage their orders, view detailed product information and confirm orders on their account securley. An alert system will notify users of successful order processing ensuring a smooth and reliable shopping experience. 
 
 ## Table of contents
@@ -27,7 +28,6 @@ https://github.com/gah-mewbittik/music-e-shop View MP4 Video HERE:
 
 
 ## Features
-
 1. Responsive online store: Utilizing bootstrap and handlebars to segregate the main page and other pages for efficient layout management on all devices and screen dimensions.
 
 
@@ -65,6 +65,7 @@ Andrew Biron (https://github.com/gah-mewbittik)
 
 ## License
 Creative Commons License
+
 © Music E-Shop by Aliah Guerra & Andrew Biron 2024. Confidential and Proprietary. All Rights Reserved.
 
 
