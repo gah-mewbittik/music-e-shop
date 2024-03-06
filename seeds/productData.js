@@ -23,6 +23,8 @@ const productData = [
         featured: true,
     },
     {
+
+
         name: 'Mug',
         image_url:'images/mug.png',
         description: 'Stainless steel hot beverage cup',
